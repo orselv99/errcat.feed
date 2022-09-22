@@ -1,71 +1,206 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
+  const MOCK_UPS = [
+    {
+      thumbnail: 'https://images.unsplash.com/photo-1574007557239-acf6863bc375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+      profile: {
+        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        name: 'Joseph Therrien',
+      },
+      content: {
+        indicator: [
+          {
+            // view
+            key: 'v',
+            value: 2350,
+          },
+          {
+            // reply
+            key: 'r',
+            value: 624,
+          },
+          {
+            // thumbsup
+            key: 't',
+            value: 1470,
+          },
+        ],
+        title: 'White Mountains',
+        preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...'
+      }
+    },
+    {
+      thumbnail: 'https://images.unsplash.com/photo-1574007557239-acf6863bc375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+      profile: {
+        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        name: 'Joseph Therrien',
+      },
+      content: {
+        indicator: [
+          {
+            // view
+            key: 'v',
+            value: 2350,
+          },
+          {
+            // reply
+            key: 'r',
+            value: 624,
+          },
+          {
+            // thumbsup
+            key: 't',
+            value: 1470,
+          },
+        ],
+        title: 'White Mountains',
+        preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...'
+      }
+    },
+    {
+      thumbnail: 'https://images.unsplash.com/photo-1574007557239-acf6863bc375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+      profile: {
+        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        name: 'Joseph Therrien',
+      },
+      content: {
+        indicator: [
+          {
+            // view
+            key: 'v',
+            value: 2350,
+          },
+          {
+            // reply
+            key: 'r',
+            value: 624,
+          },
+          {
+            // thumbsup
+            key: 't',
+            value: 1470,
+          },
+        ],
+        title: 'White Mountains',
+        preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...'
+      }
+    },
+    {
+      thumbnail: 'https://images.unsplash.com/photo-1574007557239-acf6863bc375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+      profile: {
+        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        name: 'Joseph Therrien',
+      },
+      content: {
+        indicator: [
+          {
+            // view
+            key: 'v',
+            value: 2350,
+          },
+          {
+            // reply
+            key: 'r',
+            value: 624,
+          },
+          {
+            // thumbsup
+            key: 't',
+            value: 1470,
+          },
+        ],
+        title: 'White Mountains',
+        preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...'
+      }
+    },
+    {
+      thumbnail: 'https://images.unsplash.com/photo-1574007557239-acf6863bc375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+      profile: {
+        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        name: 'Joseph Therrien',
+      },
+      content: {
+        indicator: [
+          {
+            // view
+            key: 'v',
+            value: 2350,
+          },
+          {
+            // reply
+            key: 'r',
+            value: 624,
+          },
+          {
+            // thumbsup
+            key: 't',
+            value: 1470,
+          },
+        ],
+        title: 'White Mountains',
+        preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...'
+      }
+    }
+  ]
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Generated by create next app" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
+    <div>
+      {
+        MOCK_UPS.map((value, index) => {
+          // ** NOTE 
+          // https://tailwindcss.com/docs/content-configuration
+          //  It could also be that you are trying to use dynamic class names,
+          //  which won’t work because Tailwind doesn’t actually evaluate your source code 
+          //  and can only detect static unbroken class strings.
+          //
+          // tailwind CSS 는 template literal 지원하지 않음. 
+          // 반드시 completed string 으로 넣어야함
+          return (
+            <div key={`idx_${index}`} className='rounded-[10px] w-[300px] h-[400px] relative mb-10'>
+              {/* thumbnail & view/reply/thumbsup */}
+              <div
+                className='bg-no-repeat bg-center bg-cover w-[300px] h-[200px] relative'
+                style={{ backgroundImage: `url(\'${value.thumbnail}\')` }} >
+                <div className='flex items-end p-[5px] absolute right-0 left-0 bottom-0 text-white'>
+                  {value.content.indicator.map((value) => {
+                    return (
+                      <p className='p-[5px]'>
+                        {value.key} {value.value}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
+              {/* author & preview */}
+              <div className='bg-[#e4f2fd] h-[200px] p-[20px] absolute right-0 left-0 bottom-0'>
+                <div className='flex items-center'>
+                  {/* profile - picture */}
+                  <img
+                    className='w-[60px] h-[60px] rounded-[50%] object-center object-cover m-[10px]'
+                    src={value.profile.image}
+                  />
+                  <div>
+                    {/* content - title */}
+                    <h2 className='text-[#334454] text-[1.2rem] font-bold'>
+                      {value.content.title}
+                    </h2>
+                    {/* profile - name */}
+                    <p className='text-[#a1b2bc] text-[0.8rem] italic'>
+                      {value.profile.name}
+                    </p>
+                  </div>
+                </div>
+                {/* content - preview */}
+                <div className='h-[50px] mt-[10px] text-[0.7rem]'>
+                  {value.content.preview}
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div >
   );
 };
 
