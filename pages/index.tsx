@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Image from 'next/image';
 
 const Home: NextPage = () => {
   const MOCK_UPS = [
@@ -157,16 +158,16 @@ const Home: NextPage = () => {
           // tailwind CSS 는 template literal 지원하지 않음. 
           // 반드시 completed string 으로 넣어야함
           return (
-            <div key={`idx_${index}`} className='rounded-[10px] w-[300px] h-[400px] relative mb-10'>
+            <div key={`feed_${index}`} className='rounded-[10px] w-[300px] h-[400px] relative mb-10'>
               {/* thumbnail & view/reply/thumbsup */}
               <div
                 className='bg-no-repeat bg-center bg-cover w-[300px] h-[200px] relative'
-                style={{ backgroundImage: `url(\'${value.thumbnail}\')` }} >
+                style={{ backgroundImage: `url('${value.thumbnail}')` }} >
                 <div className='flex items-end p-[5px] absolute right-0 left-0 bottom-0 text-white'>
-                  {value.content.indicator.map((value) => {
+                  {value.content.indicator.map((item, idx) => {
                     return (
-                      <p className='p-[5px]'>
-                        {value.key} {value.value}
+                      <p key={`indicator_${idx}`} className='p-[5px]'>
+                        {item.key} {item.value}
                       </p>
                     );
                   })}
@@ -176,9 +177,10 @@ const Home: NextPage = () => {
               <div className='bg-[#e4f2fd] h-[200px] p-[20px] absolute right-0 left-0 bottom-0'>
                 <div className='flex items-center'>
                   {/* profile - picture */}
-                  <img
+                  <Image
                     className='w-[60px] h-[60px] rounded-[50%] object-center object-cover m-[10px]'
                     src={value.profile.image}
+                    alt='profile-picture'
                   />
                   <div>
                     {/* content - title */}
