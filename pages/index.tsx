@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
 import { Bottom, Feed, Left, Right, Top } from '../components/home';
+import { Search } from '../components/modal/search';
 
 const Home: NextPage = () => {
   useEffect(() => {
@@ -38,9 +39,9 @@ const Home: NextPage = () => {
   return (
     <div>
       <Top />
-      <div className='flex justify-center w-auto h-auto ' >
+      <div className='flex justify-center w-auto h-auto' >
         <Left fixedTop={70} />
-        <div className='h-auto min-w-[600px] max-w-[600px]'>
+        <div className='h-auto min-w-[600px] max-w-[600px] z-[995]'>
           <div className='flex justify-center'>
             <Feed />
           </div>
@@ -48,6 +49,7 @@ const Home: NextPage = () => {
         <Right />
       </div>
       <Bottom />
+      <Search />
     </div>
   );
 };
