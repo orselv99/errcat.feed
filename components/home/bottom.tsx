@@ -1,6 +1,6 @@
 export const Bottom = () => {
   return (
-    <div className='flex flex-col h-[80px] bg-white justify-center items-center bottom-0 sticky '>
+    <div className='flex flex-col h-[80px] bg-white justify-center items-center bottom-0 sticky z-[999]'>
       <span className='font-bold mb-[5px]'>
         © 2022 ErrCat Inc.
       </span>

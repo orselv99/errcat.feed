@@ -10,3 +10,12 @@ export function makeUnitString(source: number) {
 
   return calc.toString();
 }
+
+export function convertDate(source: number) {
+  return new Date(source).toUTCString();
+}
+
+export interface Result {
+  code: number;
+  data?: any;
+}

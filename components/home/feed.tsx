@@ -20,7 +20,7 @@ interface FeedData {
 const WIDTH = 500;
 
 export const Feed = () => {
-  const [mockUps, setMockUps] = useState([] as FeedData[]);
+  const [feeds, setFeeds] = useState([] as FeedData[]);
 
   useEffect(() => {
     // mockup data
@@ -59,11 +59,11 @@ export const Feed = () => {
       }
     }
 
-    let feeddatas = [];
+    let datas = [];
     for (let i = 0; i < 10; i++)
-      feeddatas.push(generateFeedData());
+      datas.push(generateFeedData());
 
-    setMockUps(feeddatas);
+    setFeeds(datas);
   }, []);
 
   function onClick() {
@@ -73,7 +73,7 @@ export const Feed = () => {
   return (
     <div>
       {
-        mockUps.map((value, index) => {
+        feeds.map((value, index) => {
           // ** NOTE 
           // https://tailwindcss.com/docs/content-configuration
           //  It could also be that you are trying to use dynamic class names,

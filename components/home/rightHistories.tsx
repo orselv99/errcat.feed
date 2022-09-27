@@ -10,7 +10,7 @@ export const Histories = () => {
 
   useEffect(() => {
     // mockup data
-    const historydatas: HistoryData[] = [
+    const datas: HistoryData[] = [
       {
         image: 'https://cdn-icons-png.flaticon.com/512/181/181669.png',
         text: 'logo'
@@ -24,20 +24,20 @@ export const Histories = () => {
         text: 'setting'
       },
       {
-        image: 'https://cdn-icons-png.flaticon.com/512/181/181669.png',
+        image: 'https://cdn-icons-png.flaticon.com/512/3395/3395548.png',
         text: 'logo'
       },
       {
-        image: 'https://cdn-icons-png.flaticon.com/512/2207/2207590.png',
+        image: 'https://cdn-icons-png.flaticon.com/512/3395/3395548.png',
         text: 'find'
       },
       {
-        image: 'https://cdn-icons-png.flaticon.com/512/70/70115.png',
+        image: 'https://cdn-icons-png.flaticon.com/512/3395/3395548.png',
         text: 'setting'
       }
     ];
 
-    setHistories(historydatas);
+    setHistories(datas);
   }, []);
 
   return (
@@ -63,12 +63,13 @@ export const Histories = () => {
                 histories.map((value, index) => {
                   if (index > 2) return;
                   return (
-                    <img
-                      key={`history_a_${index}`}
-                      className='w-[90px] h-[90px] opacity-10 m-[2px]'
-                      src='https://cdn-icons-png.flaticon.com/512/3395/3395548.png'
-                      alt='warn'
-                    />
+                    <div key={`history_a_${index}`}>
+                      <img
+                        className='w-[90px] h-[90px] opacity-10 m-[2px]'
+                        src={value.image}
+                        alt='warn'
+                      />
+                    </div>
                   );
                 })
               }
@@ -78,12 +79,13 @@ export const Histories = () => {
                 histories.map((value, index) => {
                   if (index < 3) return;
                   return (
-                    <img
-                      key={`history_b_${index}`}
-                      className='w-[90px] h-[90px] opacity-10 m-[2px]'
-                      src='https://cdn-icons-png.flaticon.com/512/3395/3395548.png'
-                      alt='warn'
-                    />
+                    <div key={`history_b_${index}`}>
+                      <img
+                        className='w-[90px] h-[90px] opacity-10 m-[2px]'
+                        src={value.image}
+                        alt='warn'
+                      />
+                    </div>
                   );
                 })
               }
