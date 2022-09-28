@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { convertDate, Result } from '../lib/common';
+import { convertDate, Result } from '../common';
 
 interface LastestRecommendHashTag {
   name: string;
@@ -16,21 +16,27 @@ export const getLastestRecommendHashTagAsync = createAsyncThunk(
     const now = Date.now();
     if (latest_update + 10 * 60 * 1000 < now) {
       latest_update = now;
-      console.log(convertDate(latest_update), 'new request [getLastestRecommendHashTag]');
+      console.log(
+        convertDate(latest_update),
+        'new request [getLastestRecommendHashTag]'
+      );
 
       return axios({
         method: 'GET',
-        url: 'http://localhost:3000/api/v1/feed/hash?type=trend&list=5'
+        url: 'http://localhost:3000/api/v1/feed/hash?type=trend&list=5',
       })
         .then((res) => res.data)
         .catch((err) => {
           if (err) console.error('AXIOS', err);
           return { code: -124012093, data: `axios error ${err}` };
-        })
+        });
     }
 
     // 기존값
-    console.log(convertDate(latest_update), 'latest request [getLastestRecommendHashTag]');
+    console.log(
+      convertDate(latest_update),
+      'latest request [getLastestRecommendHashTag]'
+    );
     return Promise.resolve({
       code: 11,
     });
@@ -44,24 +50,26 @@ const slice = createSlice({
     datas: [] as LastestRecommendHashTag[],
   },
   reducers: {
-    setVisible: (state, action: PayloadAction<boolean>) => {
+    setSearchVisible: (state, action: PayloadAction<boolean>) => {
       state.visible = action.payload;
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(getLastestRecommendHashTagAsync.fulfilled, (state, action: PayloadAction<Result>) => {
+    builder.addCase(
+      getLastestRecommendHashTagAsync.fulfilled,
+      (state, action: PayloadAction<Result>) => {
         if (action.payload.code === 11) {
-        }
-        else {
+          // do something? lint error :(
+        } else {
           state.datas = action.payload.data as LastestRecommendHashTag[];
         }
-      })
-  }
+      }
+    );
+  },
 });
 
 const { actions, reducer } = slice;
 
-export const { setVisible } = actions;
+export const { setSearchVisible } = actions;
 
 export const SearchReducer = reducer;

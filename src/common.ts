@@ -3,8 +3,7 @@ export function makeUnitString(source: number) {
   if (source > 1000) {
     calc = source / 1000;
     return `${calc.toFixed(1)}k`;
-  }
-  else {
+  } else {
     calc = Math.round(calc);
   }
 

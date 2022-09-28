@@ -21,21 +21,21 @@ export default function handler(
         data: [
           {
             count: Math.round(Math.random() * 100),
-            name: Math.random().toString(36).substring(2, 10)
+            name: Math.random().toString(36).substring(2, 10),
           },
           {
             count: Math.round(Math.random() * 100),
-            name: Math.random().toString(36).substring(2, 10)
+            name: Math.random().toString(36).substring(2, 10),
           },
           {
             count: Math.round(Math.random() * 100),
-            name: Math.random().toString(36).substring(2, 10)
+            name: Math.random().toString(36).substring(2, 10),
           },
           {
             count: Math.round(Math.random() * 100),
-            name: Math.random().toString(36).substring(2, 10)
+            name: Math.random().toString(36).substring(2, 10),
           },
-        ]
+        ],
       });
   }
 

@@ -10,7 +10,7 @@
       "request": "launch",
       "command": "npm run dev"
     },
-    /** 
+    /**
      *  FIXME: full stack 구성은 동작하는데 얘는 왜 안될까..
      *
      *  {

@@ -5,4 +5,3 @@ import { Right } from './right';
 import { Top } from './top';
 
 export { Bottom, Feed, Left, Right, Top };
-
