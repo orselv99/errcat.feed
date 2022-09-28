@@ -1,69 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { makeUnitString } from '../../lib/common';
+import { RootState, useDispatchAsync } from '../../redux';
+import { getFeedsAsync } from '../../redux/feed';
 
-interface FeedData {
-  thumbnail: string;
-  profile: {
-    image: string;
-    name: string;
-  };
-  content: {
-    title: string;
-    preview: string;
-    indicator: {
-      key: string;
-      value: number;
-    }[];
-  }
-}
+
 
 const WIDTH = 500;
 
 export const Feed = () => {
-  const [feeds, setFeeds] = useState([] as FeedData[]);
+  const dispatch = useDispatch();
+  const dispatchAsync = useDispatchAsync();
+  const datas = useSelector((state: RootState) => state.feed.datas);
+
+  function getScrollY() {
+    const body = document.body;
+    const html = document.documentElement;
+    const documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
+      html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+    // EOD
+    if (window.scrollY >= documentHeight - window.innerHeight - 150) {
+      dispatchAsync(getFeedsAsync());
+    }
+  }
 
   useEffect(() => {
-    // mockup data
-    function generateFeedData(): FeedData {
-      const visited = (() => {
-        if (Math.random() * 10 > 4) return true;
-        return false;
-      })();
-      return {
-        thumbnail: 'https://images.unsplash.com/photo-1574007557239-acf6863bc375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
-        profile: {
-          image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-          name: 'Joseph Therrien',
-        },
-        content: {
-          title: 'White Mountains',
-          preview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint...',
-          indicator: [
-            {
-              // view
-              key: (visited === true ? '✔' : '👁‍🗨'),
-              value: Math.random() * 100000,
-            },
-            {
-              // reply
-              key: '💬',
-              value: Math.random() * 100,
-            },
-            {
-              // thumbsup
-              key: (visited && (Math.random() * 10 > 4) ? '✨' : '⭐'),
-              value: Math.random() * 1000,
-            },
-          ],
-        }
-      }
+    dispatchAsync(getFeedsAsync());
+    window.addEventListener('scroll', getScrollY);
+    return () => {
+      window.removeEventListener('scroll', getScrollY);
     }
-
-    let datas = [];
-    for (let i = 0; i < 10; i++)
-      datas.push(generateFeedData());
-
-    setFeeds(datas);
   }, []);
 
   function onClick() {
@@ -73,7 +40,7 @@ export const Feed = () => {
   return (
     <div>
       {
-        feeds.map((value, index) => {
+        datas.map((value, index) => {
           // ** NOTE 
           // https://tailwindcss.com/docs/content-configuration
           //  It could also be that you are trying to use dynamic class names,
