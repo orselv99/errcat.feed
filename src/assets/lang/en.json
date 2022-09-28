@@ -1,6 +1,11 @@
 {
   "title": "Title",
+
+  "language" : "Language",
+  "dark theme" : "Dark Theme",
+
   "terms" : "Terms",
   "privacy" : "Privacy",
   "cookies" : "Cookies"
+
 }

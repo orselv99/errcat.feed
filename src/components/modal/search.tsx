@@ -29,6 +29,7 @@ export const Search = () => {
           overlay={true}
           element={
             <div className="rounded-[10px] w-[800px] h-[240px] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-gray-200">
+              {/* exit */}
               <div
                 className="relative float-right m-[10px] cursor-pointer"
                 onClick={onClickExit}
@@ -39,8 +40,9 @@ export const Search = () => {
                   alt="exit"
                 />
               </div>
-              <div className="flex  h-[100%]">
+              <div className="flex h-[100%]">
                 <div className="flex flex-col justify-center items-center">
+                  {/* search text input */}
                   <div className="flex">
                     <div className="relative top-[15px] left-[32px] font-bold cursor-pointer">
                       <img
@@ -62,6 +64,7 @@ export const Search = () => {
                       />
                     </div>
                   </div>
+                  {/* tags from request */}
                   <div className="flex w-[800px] justify-center">
                     {datas.map((value, index) => {
                       return (

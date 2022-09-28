@@ -1,6 +1,10 @@
 {
   "title": "제목",
-  "terms" : "약관",
+
+  "language" : "언어",
+  "dark theme" : "어두운 테마",
+
+  "terms" : "이용약관",
   "privacy" : "개인정보 처리방침",
   "cookies" : "쿠키"
 }
